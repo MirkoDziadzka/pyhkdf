@@ -11,8 +11,7 @@ Test testcases are straioght from the RFC
 
 import unittest
 
-from Crypto.Hash import SHA256, SHA512
-from Crypto.Hash import HMAC
+from Crypto.Hash import SHA256, SHA1
 
 from hkdf import HKDF
 
@@ -36,6 +35,25 @@ class RFC5869Tests(unittest.TestCase):
 
 	OKM = HKDF(IKM, salt = salt, digestmod = SHA256).extract_key(info, 42)
 	assert OKM == "06a6b88c5853361a06104c9ceb35b45cef760014904671014a193f40c15fc244".decode("hex")
+
+    def test_rfc5869_Test_Case_3():
+	digestmod = SHA256
+	IKM = "0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b".decode("hex")
+	salt = "".decode("hex")
+	info = "".decode("hex")
+
+	OKM = HKDF(IKM, salt = salt, digestmod = SHA256).extract_key(info, 42)
+	assert OKM == "8da4e775a563c18f715f802a063c5a31b8a11f5c5ee1879ec3454e5f3c738d2d9d201395faa4b61a96c8".decode("hex")
+
+    def test_rfc5869_Test_Case_4():
+	digestmod = SHA1
+	IKM = "0b0b0b0b0b0b0b0b0b0b0b".decode("hex")
+	salt = "000102030405060708090a0b0c".decode("hex")
+	info = "f0f1f2f3f4f5f6f7f8f9".decode("hex")
+
+	OKM = HKDF(IKM, salt = salt, digestmod = SHA256).extract_key(info, 42)
+	assert OKM == "085a01ea1b10f36933068b56efa5ad81a4f14b822f5b091568a9cdd4f155fda2c22e422478d305f3f896".decode("hex")
+
 
 
 if __name__ == '__main__':
