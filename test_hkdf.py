@@ -5,7 +5,7 @@ HMAC-based Extract-and-Expand Key Derivation Function (HKDF)
 
 http://tools.ietf.org/html/rfc5869
 
-Test testcases are straioght from the RFC
+Test testcases are straight from the RFC
 """
 
 
