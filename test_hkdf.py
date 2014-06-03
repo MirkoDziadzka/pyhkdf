@@ -1,11 +1,11 @@
 """
 This is a straight forward implementation of RFC 5869
 
-HMAC-based Extract-and-Expand Key Derivation Function (HKDF)
+HMAC-based Key Derivation Function (HKDF)
 
 http://tools.ietf.org/html/rfc5869
 
-Test testcases are straight from the RFC
+The testcases are straight from the RFC
 """
 
 
