@@ -11,5 +11,9 @@ venv:
 test:
 	(. venv/bin/activate && python -m unittest discover)
 
+coverage: test
+	(. venv/bin/activate && coverage run --omit=venv/\*,test_\* -m unittest discover)
+
+
 clean:
 	rm -rf venv *.pyc
