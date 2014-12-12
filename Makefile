@@ -8,12 +8,12 @@ venv:
 	virtualenv venv
 	(. venv/bin/activate && pip install -r requirements.txt)
 
+.PHONY: test
 test:
-	(. venv/bin/activate && python -m unittest discover)
-
-coverage: test
-	(. venv/bin/activate && coverage run --omit=venv/\*,test_\* -m unittest discover)
+	(. venv/bin/activate && cd src && python -m unittest discover)
 
 
 clean:
 	rm -rf venv *.pyc
+
+

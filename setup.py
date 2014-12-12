@@ -37,6 +37,8 @@ setup(
     author="Mirko Dziadzka",
     author_email="mirko.dziadzka@gmail.com",
     url="https://github.com/MirkoDziadzka/pyhkdf",
+    package_dir = {'': 'src'},
+    py_modules = ['hkdf'],
     install_requires=requirements(),
     keywords='HKDF',
 )
