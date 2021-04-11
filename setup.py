@@ -21,7 +21,7 @@ def get_version():
         # since 'version.txt' is .gitignored, running setup.py (install|develop)
         # from a git repo requires a bit of bootstrapping. in this case, we use
         # the raw .git tag as the version.
-        version = "0.0"
+        version = "0.1"
         revision = subprocess.check_output(["git", "rev-list", "HEAD", "--count"])
         sha = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"])
         return '-'.join((version, revision, sha))
