@@ -14,7 +14,7 @@ test:
 
 .PHONY: coverage
 coverage:
-	(cd src && coverage erase && coverage run -m unittest discover && coverage html)
+	(cd src && coverage erase && coverage run --source . -m unittest discover && coverage html)
 
 
 clean:
