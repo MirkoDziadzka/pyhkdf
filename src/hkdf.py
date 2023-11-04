@@ -79,7 +79,7 @@ class HKDF:
         return self.__digest.digest_size
 
     @property
-    def _prk(self):
+    def prk(self):
         """ the pseudorandom key, computed from the input key and the salt
         """
         return self.__prk
