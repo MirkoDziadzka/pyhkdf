@@ -15,6 +15,7 @@ from Crypto.Hash import SHA as SHA1, SHA256, SHA512
 
 from hkdf import HKDF
 
+# pylint: disable=line-too-long
 
 class Test(unittest.TestCase):
     """ test cases for hkdf """
@@ -82,8 +83,8 @@ class Test(unittest.TestCase):
                         engine = HKDF(bytes.fromhex(ikm), digestmod=digestmod)
                     else:
                         engine = HKDF(bytes.fromhex(ikm), salt=bytes.fromhex(salt), digestmod=digestmod)
-                    self.assertEqual(len(engine._prk), engine.digest_length)
-                    self.assertEqual(engine._prk, bytes.fromhex(prk))
+                    self.assertEqual(len(engine.prk), engine.digest_length)
+                    self.assertEqual(engine.prk, bytes.fromhex(prk))
                     result = engine.expand(bytes.fromhex(info), length)
                     self.assertEqual(result,  bytes.fromhex(okm))
 
